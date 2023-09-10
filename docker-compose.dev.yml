@@ -1,0 +1,18 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.env
+    container_name: backend
+    ports:
+      - "8100:8100"
+    volumes:
+      - ./backend:/backend
+      - /backend/node_modules
+    env_file:
+      - ./.env
+
+networks:
+  default:
+    external: true
+    name: custom_db

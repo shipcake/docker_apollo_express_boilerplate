@@ -1,0 +1,42 @@
+services:
+  #redis
+  # redis:
+  #   image: redis
+  #   command: redis-server --requirepass MsaveService
+  #   container_name: redis
+  #   restart: always
+  #   networks:
+  #     - database
+  #   ports:
+  #     - '6380:6379'
+    # expose:
+    #   - '6380'
+  #mongo database
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    restart: always
+    volumes:
+      - ./mongo/mongod.conf:/etc/mongod.conf
+      - ./mongo/db:/data/db
+    ports:
+      - 27018:27018
+    entrypoint: ["mongod", "--auth", "--config", "/etc/mongod.conf"]
+    networks:
+      - database
+
+  # nginx:
+  #   image: nginx:stable-alpine
+  #   container_name: nginx
+  #   restart: always
+  #   volumes:
+  #     - ./nginx/reverse_proxy.conf:/etc/nginx/conf.d/default.conf
+  #   ports:
+  #     - "80:80"
+  #   networks:
+  #     - database
+
+networks:
+  database:
+    external: true
+    name: custom_db
