@@ -10,6 +10,7 @@ Boilerplate Mongodb + Firebase Authentication + Apollo Server Typescript
 - Modemon For Development With Auto Restart Server.
 - Basic JWT GraphQL Authentication Verify.
 - Basic JWT API Authentication Verify.
+- Nginx (Prepare In Project Ready To Use)
 - Typescript Ready To Use.
 - Graphql Compression Size.
 - Apollo Server V.4
